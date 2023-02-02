@@ -5,7 +5,8 @@ pipeline {
 	stage('PreBuild') {
             steps {
 		input {
-                  message 'please input your name'
+                   message 'please input your name'
+                   ok "Yes, we should."
                       }
                 }
 	     }
