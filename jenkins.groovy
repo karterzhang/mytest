@@ -2,15 +2,20 @@ pipeline {
     agent any
 
     stages {
-	stage('PreBuild') {
-            	input {
-                   message  "Title : please input your name"
-                   ok "Yes, we should."
-		   parameters {
-                    string(name: 'PERSON', defaultValue: 'Jenkins', description: 'Who should I say hello to?')
-                         }	
-                     }
-	     }
+	    
+	stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
+            }
+        }
      	    
         stage('Source') {
             steps {
