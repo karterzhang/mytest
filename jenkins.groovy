@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                echo 'Hello World-Source';hostname
+                echo 'Hello World-Source';
+		    hostname
             }
         }
 		
