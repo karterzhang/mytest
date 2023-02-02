@@ -5,9 +5,12 @@ pipeline {
 	stage('PreBuild') {
             steps {
 		input {
-                   message 'please input your name'
+                   message "please input your name"
                    ok "Yes, we should."
-                      }
+		   parameters {
+                    string(name: 'PERSON', defaultValue: 'Jenkins', description: 'Who should I say hello to?')
+                         }	
+                     }
                 }
 	     }
      	    
