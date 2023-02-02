@@ -3,13 +3,10 @@ pipeline {
 
     stages {
 	stage('PreBuild') {
-            steps {
-            echo 'this is PreBuild'
-               input {
+                 input {
                   message 'please input your name'
                }
-            }
-        }
+             }
      	    
         stage('Source') {
             steps {
