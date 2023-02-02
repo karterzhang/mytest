@@ -27,7 +27,11 @@ pipeline {
 		stage('Deploy') {
             steps {
                 echo 'Hello World-Deploy'
-                sh 'id'
+                sh '''
+                  id
+		  pwd
+		  date		  
+                '''
             }
         }
 		
