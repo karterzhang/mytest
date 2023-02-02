@@ -7,11 +7,11 @@ pipeline {
                 message "Should we continue?"
                 ok "Yes, we should."
                  parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                    string(name: 'Approver', defaultValue: 'Karter', description: 'Who will approve this job?')
                 }              
             } 
 	   steps {
-          	  echo "Hello, ${PERSON}, nice to meet you."
+          	  echo "Hello, ${Approver}, nice to meet you."
             }
         }
      	    
