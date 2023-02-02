@@ -5,7 +5,8 @@ pipeline {
         stage('Source') {
             steps {
                 echo 'Hello World-Source'
-		hostname
+		sh 'hostname'
+                sh 'date'
             }
         }
 		
