@@ -1,8 +1,16 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'code_branch', defaultValue: 'master', description: '请输入将要构建的代码分支')
+        choice(name: 'mode', choices: ['deploy', 'rollback'], description: '选择方向！')
+        text(name: 'deploy_info', defaultValue: 'test', description: 'Enter some information about this deploy')
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+     }
+
+
     stages {	    
-        stage('Example') {
+        stage('Input') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
@@ -12,17 +20,27 @@ pipeline {
             } 
 	   
 	    steps {
-          	  echo "Hello, ${Approver}, nice to meet you."
+          	  echo "Hello, ${Approver}, thans for your help!"
             }
         }
-     	    
+     	
+	    
+	stage('parameters') {
+            steps {
+                echo "Hello, ${code_branch} branch will ${mode}"
+                echo "About this deploy: ${deploy_info}"
+                echo "Password: ${params.PASSWORD}"
+	    }
+         }
+	    
+	    
         stage('Source') {
             steps {
                 echo 'Hello World-Source'
 		sh 'hostname'
                 sh 'date'
             }
-        }
+         }
 		
 		stage('Build') {
             steps {
