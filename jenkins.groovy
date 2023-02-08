@@ -25,7 +25,7 @@ pipeline {
         }
      	
 	    
-	stage('parameters') {
+	stage('Parameters') {
             steps {
                 echo "Hello, ${code_branch} branch will ${mode}"
                 echo "About this deploy: ${deploy_info}"
