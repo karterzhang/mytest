@@ -6,11 +6,12 @@ pipeline {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
-                 parameters {
+                parameters {
                     string(name: 'Approver', defaultValue: 'Karter', description: 'Who will approve this job?')
                 }              
             } 
-	   steps {
+	   
+	    steps {
           	  echo "Hello, ${Approver}, nice to meet you."
             }
         }
